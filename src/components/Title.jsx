@@ -11,7 +11,8 @@ export const Title = ({ children, tag, className }) => {
         'font-bold',
         {
           'text-3xl text-indigo-600': tag === 'h1',
-          'text-2xl text-blue-800': tag === 'h2',
+          'text-2xl text-gray-800': tag === 'h2',
+          'text-xl text-gray-800': tag === 'h3',
         },
         className
       )}
@@ -23,6 +24,6 @@ export const Title = ({ children, tag, className }) => {
 
 Title.propTypes = {
   children: PropTypes.node.isRequired,
-  tag: PropTypes.string,
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3']),
   className: PropTypes.string,
 };
