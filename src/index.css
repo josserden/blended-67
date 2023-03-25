@@ -6,6 +6,17 @@ body {
   @apply bg-slate-50;
 }
 
+.wrapper {
+  @apply grid gap-10;
+}
+
+/* Form */
+.label {
+  @apply grid gap-2.5;
+}
+.label-text {
+  @apply font-bold lowercase text-indigo-600;
+}
 .input {
   @apply rounded-md border-gray-300 p-2 pl-3 shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
 }
