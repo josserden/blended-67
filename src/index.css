@@ -7,5 +7,5 @@ body {
 }
 
 .input {
-  @apply block w-full rounded-md border-gray-300 p-2 pl-3 shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+  @apply rounded-md border-gray-300 p-2 pl-3 shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
 }
