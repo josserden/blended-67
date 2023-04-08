@@ -11,7 +11,11 @@ axios.defaults.params = {
 };
 
 export const fetchImages = async (query, page) => {
-  const { data } = await axios.get(`/?q=${query}&page=${page}`);
+  const {
+    data: { hits, totalHits },
+  } = await axios.get(`/?q=${query}&page=${page}`);
 
-  return data.hits;
+  console.log({ hits, totalHits });
+
+  return { hits, totalHits };
 };

@@ -13,6 +13,8 @@ const INITIAL_STATE = {
   images: [],
   searchQuery: '',
   page: 1,
+  isVisible: false,
+  per_page: 12,
 };
 
 export class App extends Component {
@@ -21,12 +23,13 @@ export class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { searchQuery, page } = this.state;
+    const { searchQuery, page, per_page } = this.state;
 
     if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
-      fetchImages(searchQuery, page).then(images => {
+      fetchImages(searchQuery, page).then(({ hits, totalHits }) => {
         this.setState(prevState => ({
-          images: [...prevState.images, ...images],
+          images: [...prevState.images, ...hits],
+          isVisible: totalHits > prevState.images.length + per_page,
         }));
       });
     }
@@ -46,7 +49,7 @@ export class App extends Component {
   };
 
   render() {
-    const { images } = this.state;
+    const { images, isVisible } = this.state;
 
     return (
       <>
@@ -57,15 +60,15 @@ export class App extends Component {
 
           {images.length > 0 && <ImageGallery images={images} />}
 
-          {/* {images.length === 0 && (
+          {isVisible ? (
+            <Button className="mx-auto " onClick={this.handleLoadMore}>
+              Load more
+            </Button>
+          ) : (
             <Title className="text-center font-light !text-gray-500" tag="h3">
               There are no images ...
             </Title>
-          )} */}
-
-          <Button className="mx-auto " onClick={this.handleLoadMore}>
-            Load more
-          </Button>
+          )}
         </AppLayout>
       </>
     );
