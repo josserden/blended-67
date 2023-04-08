@@ -43,7 +43,7 @@ export class Searchbar extends Component {
           </button>
 
           <input
-            className="input w-full !pl-10"
+            className="input w-full !pl-10 !shadow-md"
             type="text"
             name="query"
             autoComplete="off"

@@ -9,24 +9,40 @@ import { Searchbar } from 'components/Searchbar';
 import { Button } from './Button';
 import { Title } from './Title';
 
+const INITIAL_STATE = {
+  images: [],
+  searchQuery: '',
+  page: 1,
+};
+
 export class App extends Component {
   state = {
-    images: [],
-    searchQuery: '',
+    ...INITIAL_STATE,
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { searchQuery } = this.state;
+    const { searchQuery, page } = this.state;
 
-    if (prevState.searchQuery !== searchQuery) {
-      fetchImages(searchQuery).then(images => {
-        this.setState({ images });
+    if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
+      fetchImages(searchQuery, page).then(images => {
+        this.setState(prevState => ({
+          images: [...prevState.images, ...images],
+        }));
       });
     }
   }
 
   handleFormSubmit = query => {
-    this.setState({ searchQuery: query });
+    this.setState({
+      ...INITIAL_STATE,
+      searchQuery: query,
+    });
+  };
+
+  handleLoadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
   };
 
   render() {
@@ -47,7 +63,9 @@ export class App extends Component {
             </Title>
           )} */}
 
-          <Button className="mx-auto">Load more</Button>
+          <Button className="mx-auto " onClick={this.handleLoadMore}>
+            Load more
+          </Button>
         </AppLayout>
       </>
     );
