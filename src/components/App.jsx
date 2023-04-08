@@ -1,58 +1,36 @@
 import { Component } from 'react';
 
+import { fetchImages } from 'utils/image-api';
+
 import { AppLayout } from 'components/AppLayout';
-import { Form } from 'components/Form';
 import { Header } from 'components/Header';
-import { Title } from 'components/Title';
-import { Button } from 'components/Button';
-import { ContactList } from './ContactList';
+import { Searchbar } from 'components/Searchbar';
 
 export class App extends Component {
   state = {
-    contacts: [],
+    images: [],
+    searchQuery: '',
   };
 
-  handleFormSubmit = contacts => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contacts],
-    }));
-  };
+  // componentDidMount() {
+  //   fetchImages('batman').then(data => {
+  //     console.log(data);
+  //   });
+  // }
 
-  handleDeleteContact = id => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== id),
-    }));
+  handleFormSubmit = query => {
+    fetchImages(query).then(data => {
+      console.log(data);
+    });
   };
 
   render() {
-    const { contacts } = this.state;
-
     return (
       <>
         <Header />
 
         <AppLayout>
-          <div>
-            <Title className="mb-10" tag="h2">
-              Add contact
-            </Title>
-            <Form onSubmit={this.handleFormSubmit} />
-          </div>
-
-          <div>
-            <Title className="mb-10" tag="h2">
-              Contacts
-            </Title>
-
-            {contacts.length > 0 ? (
-              <ContactList
-                contacts={contacts}
-                onDelete={this.handleDeleteContact}
-              />
-            ) : (
-              <Title tag="h3">No contacts</Title>
-            )}
-          </div>
+          <Searchbar onSubmit={this.handleFormSubmit} />
         </AppLayout>
       </>
     );
