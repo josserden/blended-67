@@ -5,7 +5,7 @@ import { fetchImages } from 'utils/image-api';
 import { AppLayout } from 'components/AppLayout';
 import { Header } from 'components/Header';
 import { ImageGallery } from 'components/ImageGallery';
-import { Searchbar } from 'components/Searchbar';
+import { Searchbar } from 'components/Searchbar/Searchbar';
 import { Button } from './Button';
 import { Title } from './Title';
 
