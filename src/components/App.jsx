@@ -19,8 +19,6 @@ export class App extends Component {
   };
 
   handleDeleteContact = id => {
-    console.log(id);
-
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
