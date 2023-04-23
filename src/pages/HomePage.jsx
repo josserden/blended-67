@@ -1,5 +1,10 @@
 import React from 'react';
+import { PageWrapper } from 'components/PageWrapper';
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <PageWrapper>
+      <h1>Home Page</h1>
+    </PageWrapper>
+  );
 };
