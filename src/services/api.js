@@ -8,10 +8,14 @@ axios.defaults.params = {
 };
 
 export const getTrendingMovies = () => {
-  axios.get('trending/movie/day?').then(({ data }) => {
-    console.log(data.results);
-  });
+  return axios.get(`trending/movie/day?`).then(({ data }) => data.results);
 };
+
+// export const getTrendingMovies = async () => {
+//   const { data } = await axios.get(`trending/movie/day?`);
+
+//   return data.results;
+// };
 
 export const getSearchMovie = movieName => {
   axios.get(`search/movie?${movieName}`).then(({ data }) => {
