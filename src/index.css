@@ -1,18 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import-normalize; /* bring in normalize.css styles */
 
 body {
-  @apply bg-slate-50;
-}
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 
-/* Form */
-.label {
-  @apply grid gap-2.5;
-}
-.label-text {
-  @apply font-bold  text-gray-600;
-}
-.input {
-  @apply rounded-md border-2 border-gray-200 p-2 pl-3 shadow-sm placeholder:text-gray-400 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
