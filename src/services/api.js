@@ -8,14 +8,18 @@ axios.defaults.params = {
 };
 
 export const getTrendingMovies = () => {
-  return axios.get(`trending/movie/day?`).then(({ data }) => data.results);
+  return axios.get(`trending/movie/day`).then(({ data }) => data.results);
 };
 
 // export const getTrendingMovies = async () => {
-//   const { data } = await axios.get(`trending/movie/day?`);
+//   const { data } = await axios.get(`trending/movie/day`);
 
 //   return data.results;
 // };
+
+export const getMovieDetails = id => {
+  return axios.get(`movie/${id}`).then(({ data }) => data);
+};
 
 export const getSearchMovie = movieName => {
   axios.get(`search/movie?${movieName}`).then(({ data }) => {
@@ -23,14 +27,8 @@ export const getSearchMovie = movieName => {
   });
 };
 
-export const getMovieDetails = id => {
-  axios.get(`movie/${id}?`).then(({ data }) => {
-    console.log(data);
-  });
-};
-
 export const getMovieActors = id => {
-  axios.get(`movie/${id}/credits?`).then(({ data }) => {
+  axios.get(`movie/${id}/credits`).then(({ data }) => {
     console.log(data.cast);
   });
 };
