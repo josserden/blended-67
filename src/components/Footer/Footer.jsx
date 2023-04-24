@@ -20,7 +20,7 @@ export const Footer = () => {
             fontWeight: 500,
           }}
         >
-          {new Date().getFullYear()} © React Crud App
+          {new Date().getFullYear()} © Contacts App
         </Typography>
       </Container>
     </Box>
