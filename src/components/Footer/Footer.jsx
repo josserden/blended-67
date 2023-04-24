@@ -1,12 +1,11 @@
 import Box from '@mui/material/Box';
-
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 export const Footer = () => {
   return (
     <Box
-      as="footer"
+      component="footer"
       sx={{
         py: 2,
         borderTop: '1px solid #eaeaea',
@@ -21,7 +20,7 @@ export const Footer = () => {
             fontWeight: 500,
           }}
         >
-          {new Date().getFullYear()} © The Movie Database
+          {new Date().getFullYear()} © React Crud App
         </Typography>
       </Container>
     </Box>

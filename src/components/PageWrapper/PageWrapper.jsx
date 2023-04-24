@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Container } from '@mui/material';
+
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 export const PageWrapper = ({ children }) => {
   return (
