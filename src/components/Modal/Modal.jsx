@@ -15,10 +15,6 @@ export const Modal = () => {
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const onSubmit = async data => {
-    console.log(data);
-  };
-
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -43,7 +39,7 @@ export const Modal = () => {
               To add new contact, please enter name and phone number.
             </DialogContentText>
 
-            <Form onSubmit={onSubmit} handleClose={handleClose} />
+            <Form handleClose={handleClose} />
           </DialogContent>
         </Box>
       </Dialog>

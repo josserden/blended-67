@@ -1,33 +1,40 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { filteredContacts } from 'redux/contactsSlice';
 
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+// import Box from '@mui/material/Box';
+// import TextField from '@mui/material/TextField';
 
-export const Filter = () => {
-  const [value, setValue] = useState('');
+// export const Filter = () => {
+//   const [value, setValue] = useState('');
 
-  const handleChangeFilter = e => {
-    setValue(e.target.value);
-  };
+//   const dispatch = useDispatch();
 
-  return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': {
-          width: '25ch',
-        },
-      }}
-      autoComplete="off"
-    >
-      <TextField
-        id="standard-basic"
-        label="Find user by name"
-        variant="standard"
-        type="text"
-        value={value}
-        onChange={handleChangeFilter}
-      />
-    </Box>
-  );
-};
+//   const handleChangeFilter = e => {
+//     const { value } = e.target;
+
+//     setValue(value);
+//     dispatch(filteredContacts(value));
+//   };
+
+//   return (
+//     <Box
+//       component="form"
+//       sx={{
+//         '& > :not(style)': {
+//           width: '25ch',
+//         },
+//       }}
+//       autoComplete="off"
+//     >
+//       <TextField
+//         id="standard-basic"
+//         label="Find user by name"
+//         variant="standard"
+//         type="text"
+//         value={value}
+//         onChange={handleChangeFilter}
+//       />
+//     </Box>
+//   );
+// };
